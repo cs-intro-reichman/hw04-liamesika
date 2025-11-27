@@ -43,28 +43,21 @@ public class ArrCharOps {
     /** Returns the char value at the specified index. Assume that the array is non-empty.
      */
     public static char charAt(char[] arr, int index) {
-        char index_val = ' ';
-        for (int i=0; i<index ; i++){
-            index_val = arr[i];
+        if (index < 0 || index >= arr.length) {
+            return ' ';
         }
-        return index_val;
+        return arr[index];
     }
 
     /** If the two arrays have the same value in every index, 
      *  returns true; Otherwise returns false.
      */
-    public static boolean equals(char[] arr1, char[] arr2) {
-        int range_arr1, range_arr2 ;
-        range_arr1 = arr1.length; 
-        range_arr2 = arr2.length; 
-        if (range_arr1 != range_arr2){
+     public static boolean equals(char[] arr1, char[] arr2) {
+        if (arr1.length != arr2.length) {
             return false;
         }
-        for (int i=0; i<range_arr1; i++){
-            if (arr1[i] == arr2[i]){
-                continue;
-            }
-            else{
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
                 return false;
             }
         }
@@ -135,7 +128,7 @@ public class ArrCharOps {
         }
 
         for (int j=0; j<range_arr2; j++){
-            arr_return[j] = arr2[j];
+            arr_return[j + range_arr1] = arr2[j];
         }
         
         return arr_return;
@@ -188,9 +181,6 @@ public class ArrCharOps {
             char char_str1, char_str2;
             int length1, length2, check_lengt, return_val=0;
 
-            str1 = str1.toLowerCase();
-            str2 = str2.toLowerCase();
-
             length1 = str1.length();
             length2 = str2.length();
 
@@ -230,7 +220,7 @@ public class ArrCharOps {
                         return return_val;
                     }
             }
-        
+
             return 0;
     }
 }

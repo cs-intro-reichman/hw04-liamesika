@@ -1,6 +1,6 @@
 public class Primes {
     public static void main(String[] args) {
-        int num = Integer.parseInt(args[0]);   
+        int num = Integer.parseInt(args[0]);
         int count=0, percentage, prime_times;
 
         boolean[] arr_prime = new boolean[num+1];
@@ -15,18 +15,21 @@ public class Primes {
              if ((i*j) > num){
                 break;
              }
-            arr_prime[i*j] = false;  
-             
+            arr_prime[i*j] = false;
+
             }
         }
-        for (int p=2;p<num;p++){
+
+        System.out.println("Prime numbers up to " + num + ":");
+        for (int p=2;p<=num;p++){
             if (arr_prime[p]){
+                System.out.println(p);
                 count ++;
             }
         }
-        
-        percentage = (int) (((double) count/(num)) *100);
 
-        System.out.println("There are " + count + " primes between 2 and " + num+" (" + percentage + "% are primes)");       
+        percentage = (int) (((double) count/(num-1)) *100);
+
+        System.out.println("There are " + count + " primes between 2 and " + num+" (" + percentage + "% are primes)");
         }
 }
