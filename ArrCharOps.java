@@ -186,20 +186,11 @@ public class ArrCharOps {
                 char c1 = str1.charAt(i);
                 char c2 = str2.charAt(i);
                 if (c1 != c2) {
-                    if (c1 < c2) {
-                        return -1;
-                    } else {
-                        return 1;
-                    }
+                    return c1 - c2;
                 }
             }
 
-            if (length1 < length2) {
-                return -1;
-            } else if (length1 > length2) {
-                return 1;
-            }
-            return 0;
+            return length1 - length2;
     }
 }
 
